@@ -1,0 +1,8 @@
+certifi==2022.6.15
+distlib==0.3.5
+filelock==3.7.1
+pipenv==2022.7.24
+platformdirs==2.5.2
+pygame==2.1.2
+virtualenv==20.16.2
+virtualenv-clone==0.5.7
