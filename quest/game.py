@@ -1,8 +1,10 @@
-import random, os
+import os
+
 import pygame as pg
 
 from . import ALTO, ANCHO
-from quest.pantallas import Portada, Partida, HallOfFame
+from quest.pantallas import Pantalla, Portada, Partida, HallOfFame
+
 
 class Quest:
     """Arranca el juego"""
@@ -13,12 +15,12 @@ class Quest:
         pg.mixer.init()
 
         self.pantallas = [
-            Portada(self.display),
-            Partida(self.display),
-            HallOfFame(self.display),
+            Portada(self.pantalla),
+            Partida(self.pantalla),
+            HallOfFame(self.pantalla),
         ]
         
-    def jugar (self):
+    def jugar(self):
         """Inicia el bucle principal"""
         for pantalla in self.pantallas:
             pantalla.bucle_principal()

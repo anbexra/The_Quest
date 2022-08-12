@@ -1,3 +1,4 @@
+from quest import ANCHO, ALTO
 from quest.game import Quest
 
 
