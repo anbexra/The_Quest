@@ -1,0 +1,52 @@
+import sys
+
+import pygame as pg
+
+class Pantalla:
+    def __init__(self, pantalla: pg.surface):
+        self.pantalla = pantalla
+        self.reloj = pg.time.Clock()
+    
+    def bucle_principal(self):
+        """Método para cada una de las pantallas, dependiendo de su función """
+        pass
+
+
+class Portada(Pantalla):
+    def bucle_principal(self, pantalla: pg.Surface):
+        
+        while True:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    pg.quit()
+                    sys.exit()
+                    
+            self.pantalla.fill((255,255,255))
+            pg.display.flip()
+
+
+class Partida(Pantalla):
+    def bucle_principal(self, pantalla: pg.Surface):
+        
+        while True:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    pg.quit()
+                    sys.exit()
+
+            self.pantalla.fill((99, 99, 99))
+            pg.display.flip()
+    
+
+
+class HallOfFame(Pantalla):
+    def bucle_principal(self, pantalla: pg.Surface):
+        salir = False
+        while not salir:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    salir = True
+            self.pantalla.fill((0, 99, 0))
+            pg.display.flip()
+    
+
