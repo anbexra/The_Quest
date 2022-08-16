@@ -18,12 +18,12 @@ class Quest:
         
     def jugar(self):
         """Inicia el bucle principal"""
-      while True:
-        for event in pg.event.get():
-            if event.type == pg.QUIT:
-                pg.quit()
-                sys.exit()
-        pg.display.update()
+        while True:
+            for event in pg.event.get():
+                if event.type == pg.QUIT:
+                    pg.quit()
+                    sys.exit()
+            pg.display.update()
 
 
             
