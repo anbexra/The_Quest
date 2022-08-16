@@ -32,9 +32,9 @@ class Quest:
             pg.display.update()
 
 
-     """Creado la pantalla,
+"""Creado la pantalla,
      proximo paso es hacer que se abran las 3 pantallas diferentes
-     """       
+"""       
             
             
 
