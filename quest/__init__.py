@@ -1,5 +1,9 @@
 ANCHO = 800
 ALTO = 600
-C_W = (255, 255, 255)
-C_B = (0, 0, 0,)
+
+COLOR_TEXTO = (255, 255, 255)
+COLOR_FONDO = (0, 0, 0,)
+
 FPS = 60
+
+VIDAS = 3
