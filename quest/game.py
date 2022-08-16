@@ -4,7 +4,7 @@ import sys
 import pygame as pg
 
 from . import ALTO, ANCHO
-
+from quest.pantallas import Portada, Partida, HallOfFame
 
 
 class Quest:
@@ -14,6 +14,12 @@ class Quest:
         self.pantalla = pg.display.set_mode((ANCHO, ALTO))
         pg.display.set_caption("The Quest")
         pg.mixer.init()
+        self.pantallas = [
+            Portada(self.pantalla),
+            Partida(self.pantalla),
+            HallOfFame(self.pantalla)
+        ]
+
 
         
     def jugar(self):

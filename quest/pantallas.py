@@ -13,6 +13,10 @@ class Pantalla:
 
 
 class Portada(Pantalla):
+    def __init__(self, pantalla: pg.surface):
+        super().__init__(pantalla)
+
+
     def bucle_principal(self, pantalla: pg.Surface):
         
         while True:
@@ -27,6 +31,9 @@ class Portada(Pantalla):
 
 
 class Partida(Pantalla):
+    def __init__(self, pantalla: pg.surface):
+        super().__init__(pantalla)
+
     def bucle_principal(self, pantalla: pg.Surface):
         
         while True:
@@ -41,6 +48,9 @@ class Partida(Pantalla):
 
 
 class HallOfFame(Pantalla):
+    def __init__(self, pantalla: pg.surface):
+        super().__init__(pantalla)
+        
     def bucle_principal(self, pantalla: pg.Surface):
     
         while True:
