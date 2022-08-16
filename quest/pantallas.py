@@ -23,6 +23,7 @@ class Portada(Pantalla):
                     
             self.pantalla.fill((255,255,255))
             pg.display.flip()
+            pg.display.update()
 
 
 class Partida(Pantalla):
@@ -36,17 +37,18 @@ class Partida(Pantalla):
 
             self.pantalla.fill((99, 99, 99))
             pg.display.flip()
-    
+            pg.display.update()
 
 
 class HallOfFame(Pantalla):
     def bucle_principal(self, pantalla: pg.Surface):
-        salir = False
-        while not salir:
+    
+        while True:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
-                    salir = True
+                    pg.quit()
+                    sys.exit()
             self.pantalla.fill((0, 99, 0))
             pg.display.flip()
-    
+            pg.display.update()
 

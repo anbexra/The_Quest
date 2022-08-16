@@ -1,9 +1,10 @@
 import os
+import sys
 
 import pygame as pg
 
 from . import ALTO, ANCHO
-from quest.pantallas import Pantalla, Portada, Partida, HallOfFame
+
 
 
 class Quest:
@@ -14,16 +15,17 @@ class Quest:
         pg.display.set_caption("The Quest")
         pg.mixer.init()
 
-        self.pantallas = [
-            Portada(self.pantalla),
-            Partida(self.pantalla),
-            HallOfFame(self.pantalla),
-        ]
         
     def jugar(self):
         """Inicia el bucle principal"""
-        for pantalla in self.pantallas:
-            pantalla.bucle_principal()
+      while True:
+        for event in pg.event.get():
+            if event.type == pg.QUIT:
+                pg.quit()
+                sys.exit()
+        pg.display.update()
+
+
             
             
             
