@@ -17,7 +17,7 @@ class Portada(Pantalla):
         super().__init__(pantalla)
 
 
-    def bucle_principal(self, pantalla: pg.Surface):
+    def bucle_principal(self):
         
         while True:
             for event in pg.event.get():
@@ -34,7 +34,7 @@ class Partida(Pantalla):
     def __init__(self, pantalla: pg.surface):
         super().__init__(pantalla)
 
-    def bucle_principal(self, pantalla: pg.Surface):
+    def bucle_principal(self):
         
         while True:
             for event in pg.event.get():
@@ -50,8 +50,8 @@ class Partida(Pantalla):
 class HallOfFame(Pantalla):
     def __init__(self, pantalla: pg.surface):
         super().__init__(pantalla)
-        
-    def bucle_principal(self, pantalla: pg.Surface):
+
+    def bucle_principal(self):
     
         while True:
             for event in pg.event.get():
