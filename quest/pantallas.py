@@ -18,8 +18,7 @@ class Portada(Pantalla):
 
 
     def bucle_principal(self):
-        
-        while True:
+         while True:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     pg.quit()
@@ -35,7 +34,6 @@ class Partida(Pantalla):
         super().__init__(pantalla)
 
     def bucle_principal(self):
-        
         while True:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
@@ -52,7 +50,6 @@ class HallOfFame(Pantalla):
         super().__init__(pantalla)
 
     def bucle_principal(self):
-    
         while True:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
