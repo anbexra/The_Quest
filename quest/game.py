@@ -24,16 +24,15 @@ class Quest:
         
     def jugar(self):
         """Inicia el bucle principal"""
-        while True:
-            for event in pg.event.get():
-                if event.type == pg.QUIT:
-                    pg.quit()
-                    sys.exit()
-            pg.display.update()
+        for pantalla in self.pantallas:
+            pantalla.bucle_principal()
+
 
 
 """Creado la pantalla,
      proximo paso es hacer que se abran las 3 pantallas diferentes
+
+     no reconoce bucle principal
 """       
             
             
