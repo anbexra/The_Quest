@@ -8,7 +8,7 @@ class Pantalla:
         self.reloj = pg.time.Clock()
     
     def bucle_principal(self):
-        """Método para cada una de las pantallas, dependiendo de su función """
+        """Método para cada una de las pantallas"""
         pass
 
 
