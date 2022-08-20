@@ -53,5 +53,11 @@ code .
 
 Atribuciones
 
+fondosmil.com
+
+1001freefonts.com
+https://dl.dafont.com
+
+
 
 
