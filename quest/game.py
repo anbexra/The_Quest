@@ -3,7 +3,7 @@ import os
 import pygame as pg
 
 from . import ALTO, ANCHO
-from quest.pantallas import Portada, Partida, HallOfFame
+from quest.pantallas import Portada, PantallaInstrucciones, Partida, HallOfFame
 
 
 class Quest:
@@ -16,6 +16,7 @@ class Quest:
 
         self.pantallas = [
             Portada(self.pantalla),
+            PantallaInstrucciones(self.pantalla),
             Partida(self.pantalla),
             HallOfFame(self.pantalla)
         ]
