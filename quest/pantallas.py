@@ -18,8 +18,10 @@ class Portada(Escena):
     def __init__(self, pantalla: pg.Surface):
         super().__init__(pantalla)
        
-        font_file = os.path.join("resources", "fonts", "QUARANTINE REGULATIONS.otf")
-        font_file1 = os.path.join("resources", "fonts", "Spacesky.otf")
+        font_file = os.path.join(
+            "resources", "fonts", "QUARANTINE REGULATIONS.otf")
+        font_file1 = os.path.join(
+            "resources", "fonts", "space age.ttf")
 
         self.tipografia = pg.font.Font(font_file, 77)
         self.t_instrucciones = pg.font.Font(font_file1, 22)
@@ -40,7 +42,8 @@ class Portada(Escena):
             pg.display.flip()  
 
     def pintar_fondo(self):
-        self.fondo = pg.image.load(os.path.join("resources", "images", "espacio.jpg")).convert()    
+        self.fondo = pg.image.load(os.path.join(
+            "resources", "images", "espacio.jpg")).convert()    
         self.pantalla.blit(self.fondo,(0, 0)) 
 
     def pintar_cabecera(self):
@@ -65,11 +68,11 @@ class PantallaInstrucciones(Escena):
     def __init__(self, pantalla: pg.Surface):
         super().__init__(pantalla)
 
-        font_file1 = os.path.join("resources", "fonts", "Spacesky.otf")
-        font_file2 = os.path.join("resources", "fonts", "04B_20__.TTF")
+        font_file1 = os.path.join("resources", "fonts", "space age.ttf")
+        font_file2 = os.path.join("resources", "fonts", "space age.ttf")
 
         self.t_instrucciones = pg.font.Font(font_file1, 22)        
-        self.t_instrucciones1 = pg.font.Font(font_file2, 11 )
+        self.t_instrucciones1 = pg.font.Font(font_file2, 15 )
 
     def bucle_principal(self):
         salir = False
@@ -86,7 +89,8 @@ class PantallaInstrucciones(Escena):
                 pg.display.flip()
 
     def pintar_fondo(self):
-        self.fondo = pg.image.load(os.path.join("resources", "images", "espacio.jpg")).convert()    
+        self.fondo = pg.image.load(os.path.join(
+            "resources", "images", "espacio.jpg")).convert()    
         self.pantalla.blit(self.fondo,(0, 0)) 
     
     def pintar_texto(self):
@@ -98,12 +102,24 @@ class PantallaInstrucciones(Escena):
         self.pantalla.blit(texto, (pos_x, pos_y))
     
     def pintar_instrucciones(self):
-        mensaje = "XXXXXX   XXXXXX   xXXXXX  XXXXXX XXXXXXX"
-        texto = self.t_instrucciones1.render(mensaje, True, COLOR_MENSAJE)
-        ancho_texto = texto.get_width()
-        pos_x = (ANCHO - ancho_texto)/2
-        pos_y = ALTO - 300
-        self.pantalla.blit(texto, (pos_x, pos_y))
+
+        posicion_mensaje = [150, 200, 250, 300, 350]
+        
+        mensaje = ["INSTRUCCIONES:", "Las teclas '</>' mueven la nave", 
+        "Las colisiones restan vidas", "Esquivar obstaculos suma puntos",
+        "Llega a un nuevo planeta para ganar la partida"]
+
+        
+        pos_x = ANCHO / 25
+        contador_posiciones = 0
+
+        for mensaje in mensaje:
+            texto = self.t_instrucciones1.render(
+                mensaje, True, COLOR_MENSAJE)
+            
+            self.pantalla.blit(
+                texto, (pos_x, posicion_mensaje[contador_posiciones]))
+            contador_posiciones += 1
 
 class Partida(Escena):
     def __init__(self, pantalla: pg.Surface):
@@ -123,7 +139,8 @@ class Partida(Escena):
             pg.display.flip()
 
     def pintar_fondo(self):
-        self.fondo = pg.image.load(os.path.join("resources", "images", "espacio.jpg")).convert()    
+        self.fondo = pg.image.load(os.path.join(
+            "resources", "images", "espacio.jpg")).convert()    
         self.pantalla.blit(self.fondo,(0, 0))             
 
 
