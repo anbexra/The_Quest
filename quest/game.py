@@ -26,8 +26,8 @@ class Quest:
         for pantalla in self.pantallas:
             pantalla.bucle_principal()
 
-"""Creado la pantalla,
- poner fondo y nave 
+"""
+ poner nave 
  nave en movimiento
  crear meteoritos * ovnis
  asomar planeta

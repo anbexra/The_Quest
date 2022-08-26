@@ -2,7 +2,8 @@ import os
 
 import pygame as pg
 
-from . import ALTO, ANCHO, COLOR_FONDO, COLOR_TEXTO, COLOR_MENSAJE
+from . import ALTO, ANCHO, COLOR_FONDO, COLOR_MENSAJE, FPS
+from quest.objetos import Nave
 
 class Escena:
     def __init__(self, pantalla: pg.Surface):
@@ -29,16 +30,20 @@ class Portada(Escena):
 
     def bucle_principal(self):
         salir = False
+
         while not salir:
             for event in pg.event.get():
                 if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                     salir = True
                 if event.type == pg.QUIT:
                     pg.quit()
+
             self.pantalla.fill((COLOR_FONDO))
+
             self.pintar_fondo()
             self.pintar_cabecera()
             self.pintar_texto()
+
             pg.display.flip()  
 
     def pintar_fondo(self):
@@ -83,9 +88,11 @@ class PantallaInstrucciones(Escena):
                 if event.type == pg.QUIT:
                     pg.quit()
                 self.pantalla.fill((COLOR_FONDO))
+
                 self.pintar_fondo()
                 self.pintar_instrucciones()
                 self.pintar_texto()
+
                 pg.display.flip()
 
     def pintar_fondo(self):
@@ -124,18 +131,25 @@ class PantallaInstrucciones(Escena):
 class Partida(Escena):
     def __init__(self, pantalla: pg.Surface):
         super().__init__(pantalla)
+        self.jugador = Nave()
+
+        
 
     def bucle_principal(self):
         salir = False
         while not salir:
+            self.reloj.tick(FPS)
+            self.jugador.update()
+
             for event in pg.event.get():
                 if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
                     salir = True
                 if event.type == pg.QUIT:
                     pg.quit()
             self.pantalla.fill((COLOR_FONDO))
+
             self.pintar_fondo()
-            
+            self.pantalla.blit(self.jugador.image, self.jugador.rect)
             pg.display.flip()
 
     def pintar_fondo(self):
@@ -145,12 +159,13 @@ class Partida(Escena):
 
 
 class HallOfFame(Escena):
+
     def bucle_principal(self):
         salir = False
         while not salir:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     pg.quit()
-            self.pantalla.fill((11, 11, 11))
+            self.pantalla.fill((COLOR_FONDO))
             pg.display.flip()
 
