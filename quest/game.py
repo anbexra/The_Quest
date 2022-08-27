@@ -27,7 +27,7 @@ class Quest:
             pantalla.bucle_principal()
 
 """
- poner nave 
+ 
  nave en movimiento
  crear meteoritos * ovnis
  asomar planeta

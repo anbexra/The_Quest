@@ -147,7 +147,7 @@ class Partida(Escena):
                 if event.type == pg.QUIT:
                     pg.quit()
             self.pantalla.fill((COLOR_FONDO))
-
+            self.jugador.update()
             self.pintar_fondo()
             self.pantalla.blit(self.jugador.image, self.jugador.rect)
             pg.display.flip()
