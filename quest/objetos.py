@@ -17,9 +17,13 @@ class Nave(Sprite):
 
 
     def update(self):
-        # self.rect.x = self.rect.x +1
+        
         tecla = pg.key.get_pressed()
         if tecla[pg.K_RIGHT]:
             self.rect.x += self.velocidad
+            if self.rect.right > ANCHO:
+                self.rect.right = ANCHO
         if tecla[pg.K_LEFT]:
             self.rect.x -= self.velocidad
+            if self.rect.left < 0:
+                self.rect.left = 0
