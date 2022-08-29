@@ -27,3 +27,16 @@ class Nave(Sprite):
             self.rect.x -= self.velocidad
             if self.rect.left < 0:
                 self.rect.left = 0
+
+class Marcador():
+    pass
+
+class ContadorVidas():
+    def __init__(self, vidas_iniciales):
+        self.vidas = vidas_iniciales
+
+    def perder_vidas(self):
+        self.vidas -= 1
+
+    def quedan_vidas(self):
+        return self.vidas < 1

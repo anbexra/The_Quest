@@ -2,8 +2,8 @@ import os
 
 import pygame as pg
 
-from . import ALTO, ANCHO, COLOR_FONDO, COLOR_MENSAJE, FPS
-from quest.objetos import Nave
+from . import ALTO, ANCHO, COLOR_FONDO, COLOR_MENSAJE, FPS, VIDAS
+from quest.objetos import ContadorVidas, Nave
 
 class Escena:
     def __init__(self, pantalla: pg.Surface):
@@ -132,6 +132,7 @@ class Partida(Escena):
     def __init__(self, pantalla: pg.Surface):
         super().__init__(pantalla)
         self.jugador = Nave()
+        self.contador_de_vidas = ContadorVidas(VIDAS)
 
         
 
