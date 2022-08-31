@@ -3,7 +3,7 @@ import os
 import pygame as pg
 
 from . import ALTO, ANCHO, COLOR_FONDO, COLOR_MENSAJE, FPS, VIDAS
-from quest.objetos import ContadorVidas, Nave
+from quest.objetos import ContadorVidas, Marcador, Nave
 
 class Escena:
     def __init__(self, pantalla: pg.Surface):
@@ -112,7 +112,7 @@ class PantallaInstrucciones(Escena):
 
         posicion_mensaje = [150, 200, 250, 300, 350]
         
-        mensaje = ["INSTRUCCIONES:", "Las teclas '</>' mueven la nave", 
+        mensaje = ["INSTRUCCIONES:", "Las teclas '</>' mueven la nave, 'X' dispara", 
         "Las colisiones restan vidas", "Esquivar obstaculos suma puntos",
         "Llega a un nuevo planeta para ganar la partida"]
 
@@ -131,9 +131,10 @@ class PantallaInstrucciones(Escena):
 class Partida(Escena):
     def __init__(self, pantalla: pg.Surface):
         super().__init__(pantalla)
-        self.jugador = Nave()
-        self.contador_de_vidas = ContadorVidas(VIDAS)
 
+        self.jugador = Nave()
+        self.contador_vidas = ContadorVidas(VIDAS)
+        self.marcador = Marcador()
         
 
     def bucle_principal(self):
@@ -151,13 +152,22 @@ class Partida(Escena):
             self.jugador.update()
             self.pintar_fondo()
             self.pantalla.blit(self.jugador.image, self.jugador.rect)
+            #pintar asteroides
+
+            self.marcador.pintar_marcador(self.pantalla)
+            self.contador_vidas.pintar_contador(self.pantalla)
             pg.display.flip()
 
     def pintar_fondo(self):
         self.fondo = pg.image.load(os.path.join(
             "resources", "images", "espacio.jpg")).convert()    
-        self.pantalla.blit(self.fondo,(0, 0))             
+        self.pantalla.blit(self.fondo,(0, 0))     
 
+    #def pintar_asteroides(self):
+        #self.asteroides = []
+
+        #for i in range()
+        #pass
 
 class HallOfFame(Escena):
 
