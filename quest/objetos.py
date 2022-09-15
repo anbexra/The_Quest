@@ -2,9 +2,11 @@
 import os
 
 import pygame as pg
+import random
 
 from pygame.sprite import Sprite
-from . import ALTO, ANCHO, COLOR_BALA, COLOR_MENSAJE
+
+from . import ALTO, ANCHO, COLOR_BALA, COLOR_FONDO, COLOR_MENSAJE
 
 class Nave(Sprite):
 
@@ -38,9 +40,37 @@ class Asteroide(Sprite):
     def __init__(self):
         super().__init__()
 
-        asteroide = os.path.join("resources", "images", "asteroide01.png")
-        self.image = pg.image.load(asteroide)    
+        imagen_asteroide = os.path.join("resources", "images", "asteroide01.png")
+        self.imag_aleatoria = random.randrange(3)
+        if self.imag_aleatoria == 0:
+            self.image = pg.transform.scale(pg.image.load(imagen_asteroide),(100, 100))
+        if self.imag_aleatoria == 1:
+            self.image = pg.transform.scale(pg.image.load(imagen_asteroide),(50, 50))
+        if self.imag_aleatoria == 2:
+            self.image = pg.transform.scale(pg.image.load(imagen_asteroide),(25, 25))
         self.rect = self.image.get_rect()
+        self.rect.x = random.randrange(ANCHO - self.rect.width)
+        self.rect.y = random.randrange(-100, -40)
+        self.velocidad_y = random.randrange(1, 10)
+        self.velocidad_x = random.randrange(-5, 5)
+
+
+
+    def update(self):
+        self.rect.y += self.velocidad_y
+        self.rect.x += self.velocidad_x
+        if self.rect.top > ALTO + 10 or self.rect.left < -25 or self.rect.right > ANCHO + 25:
+            self.rect.x = random.randrange(ANCHO - self.rect.width)
+            self.rect.y = random.randrange(-100, -40)
+            self.velocidad_y = random.randrange(1, 10)
+
+
+
+  
+        
+
+
+    
 
 
 

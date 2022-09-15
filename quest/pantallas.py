@@ -3,7 +3,7 @@ import os
 import pygame as pg
 
 from . import ALTO, ANCHO, COLOR_FONDO, COLOR_MENSAJE, FPS, VIDAS
-from quest.objetos import ContadorVidas, Marcador, Nave
+from quest.objetos import ContadorVidas, Marcador, Nave, Asteroide
 
 class Escena:
     def __init__(self, pantalla: pg.Surface):
@@ -135,13 +135,14 @@ class Partida(Escena):
         self.jugador = Nave()
         self.contador_vidas = ContadorVidas(VIDAS)
         self.marcador = Marcador()
-        
+        self.asteroide = Asteroide()
 
     def bucle_principal(self):
         salir = False
         while not salir:
             self.reloj.tick(FPS)
             self.jugador.update()
+            self.asteroide.update()
 
             for event in pg.event.get():
                 if event.type == pg.KEYDOWN and event.key == pg.K_SPACE:
@@ -152,10 +153,11 @@ class Partida(Escena):
             self.jugador.update()
             self.pintar_fondo()
             self.pantalla.blit(self.jugador.image, self.jugador.rect)
-            #pintar asteroides
-
+            
+            
             self.marcador.pintar_marcador(self.pantalla)
             self.contador_vidas.pintar_contador(self.pantalla)
+             
             pg.display.flip()
 
     def pintar_fondo(self):
@@ -163,11 +165,7 @@ class Partida(Escena):
             "resources", "images", "espacio.jpg")).convert()    
         self.pantalla.blit(self.fondo,(0, 0))     
 
-    #def pintar_asteroides(self):
-        #self.asteroides = []
-
-        #for i in range()
-        #pass
+    
 
 class HallOfFame(Escena):
 
